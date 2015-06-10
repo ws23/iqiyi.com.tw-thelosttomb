@@ -1,0 +1,166 @@
+body {
+	background-color: #090404; 	
+}
+
+.container {
+	width: 1024px;
+}
+
+/* header */
+
+img.logo {
+	margin-top: -10px; 
+	height: 40px; 	
+}
+
+img.amount {
+	position: absolute; 
+	z-index: -1; 	
+}
+
+img.header-like {
+	margin-top: -15px; 
+	height: 40px; 
+	width: 40px; 
+	margin-bottom: -10px; 	
+}
+
+.fblinkamount {
+	margin-top: 15px; 	
+}
+
+img.background {
+	position: relative; 
+	width: 1280px;
+	left: 50%; 
+	margin-left: -640px;
+	z-index: -1; 
+}
+
+.cut-background {
+	position: absolute;  
+	overflow: hidden;
+	top: 50px;
+}
+
+img.act-logo {
+	position: relative; 
+	top: 70px; 
+	left: 50%; 
+	margin-bottom: 250px; 
+	margin-left: -121px; 
+}
+
+/* body */
+
+.focus {
+	background-color: #090404;
+	width: 920px;
+	height: 540px;  
+	position: relative; 
+	left: 50%; 
+	margin-left: -460px; 
+	text-align: center; 
+	padding: 10px;  
+}
+
+embed.embed {
+	width: 900px; 
+	height: 520px; 
+}
+
+
+
+.panel-theme {
+	background-color: #4D0003; 
+	color: #FF555B; 
+}
+
+.panel-body {
+	background-color: #191414; 
+	color: #EEEEEE; 	
+}
+
+.panel-body a {
+	color: #EEEEEE; 	
+}
+
+.panel-body a:hover {
+	color: #AAAAAA; 	
+}
+
+.video {
+	width: 120px;
+	margin: 5px;  
+	display: inline-block; 	
+
+}
+
+.video img {
+	width: 116px; 
+	height: 65px; 
+}
+
+.ad {
+	margin-top: 5px;
+	margin-bottom: 15px; 
+	text-align: center; 
+}
+
+.ad img {
+	width: 980px; 
+	height: 100px; 	
+}
+
+.ad-show {
+	display: block; 
+}
+
+.ad-hidden {
+	display: none; 	
+}
+
+
+.next {
+	display: inline-block; 
+	width: 165px;
+	margin-left: 12px;
+	margin-right: 12px; 
+	margin-top: 10px; 
+	margin-bottom: 10px;   
+}
+
+.next img {
+	width: 160px; 
+	height: 90px; 		
+}
+
+
+.other {
+	display: inline-block; 
+	width: 165px; 
+	margin-left: 12px; 
+	margin-right: 12px; 
+	margin-top: 10px; 
+	margin-bottom: 10px; 	
+}
+
+.other img {
+	width: 160px; 
+	height: 90px; 	
+}
+
+.photo img {
+	width: 160px; 
+	height: 225px;
+	margin-left: 14px; 
+	margin-right: 14px; 
+	margin-top: 10px; 
+	margin-bottom: 10px; 
+}
+
+img.full {
+	width: 	429px; 
+	height: 600px;
+	margin-left: 273px; 	 
+}

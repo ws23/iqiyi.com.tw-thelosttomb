@@ -1,0 +1,78 @@
+body {
+	background-color: #090404; 	
+}
+
+.container {
+	width: 1024px;
+}
+
+/* header */
+
+img.logo {
+	margin-top: -10px; 
+	height: 40px; 	
+}
+
+img.amount {
+	position: absolute; 
+	z-index: -1; 	
+}
+
+img.header-like {
+	margin-top: -15px; 
+	height: 40px; 
+	width: 40px; 
+	margin-bottom: -10px; 	
+}
+
+.fblinkamount {
+	margin-top: 15px; 	
+}
+
+img.background {
+	position: absolute; 
+	width: 2000px; 
+	top: 50px; 
+	left: 50%; 
+	margin-left: -1000px;
+	opacity: 0.45;
+	filter: alpha(opacity=40);   
+	z-index: -1; 
+}
+
+img.act-logo {
+	position: relative; 
+	top: 70px; 
+	left: 50%; 
+	margin-bottom: 90px; 
+	margin-left: -121px; 
+}
+
+/* body */
+
+.panel {
+	margin-top: 70px; 	
+}
+
+.panel-theme {
+	background-color: #EEEEEE; 
+	color: #111111;
+}
+
+.panel-body {
+	background-color: #191414; 
+	color: #EEEEEE; 	
+}
+
+.panel-body a {
+	color: #EEEEEE; 	
+}
+
+.panel-body a:hover {
+	color: #AAAAAA; 	
+}
+
+input.html {
+	width: 100%; 
+	height: 300px;
+}
