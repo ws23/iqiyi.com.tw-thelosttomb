@@ -59,7 +59,7 @@
 			if (d.getElementById(id)) 
 				return;
 			js = d.createElement(s); js.id = id;
-			js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.2&appId=<?php echo $FBCommentID; ?>";
+			js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.3&appId=<?php echo $FBCommentID; ?>";
 			fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));
 	</script>
@@ -195,18 +195,6 @@
 		?>	
 		</div>
 	</div>
-	<!-- 抽獎活動 -->
-<!--	<a name="activity"></a>
-	<div class="panel panel-theme">
-		<div class="panel-heading">
-			<h3 class="panel-title">抽獎活動</h3>
-		</div>
-		<div class="panel-body">
-		<?php
-			require_once(dirname(__FILE__) . "/rules.php"); 
-		?>
-	</div>
-</div>-->
 
 <!-- 網友互動 -->
 	<a name="fb"></a>
@@ -217,19 +205,10 @@
 		<div class="panel-body">
 			<div class="fb-comments" data-href="http:<?php echo $URLPv; ?>" data-width="100%" data-numposts="10" data-colorscheme="dark" data-order-by="reverse_time" fb-xfbml-state="tendered">
 			</div>	
-<!--			<fb:comments width="100%" num_posts="10" href="http:<?php echo $URLPv; ?>"></fb:comments>
-			<script type="text/javascript">
-				function reSize(){
-					$("#frameid").hide(); 
-					$("#frameid").attr({height:$(document).height()-280});
-					$("#frameid").show(); 
-				}
-				window.onload=reSize; 
-			</script>
-			<iframe id="frameid" src="https://www.facebook.com/plugins/feedback.php?href=http:<?php echo $URLPv; ?>&amp;permalink=0&amp;limit=10&amp;order_by=reverse_time&amp;hide_post_profile=0&amp;color_scheme=dark" frameborder="0" width="100%" height="100%"></iframe>-->
 		</div>
 	</div>
 </div>
+
 <!-- body end -->
 <?php require_once(dirname(__FILE__) . "/lib/stdEnd.php"); ?> 
 </body>

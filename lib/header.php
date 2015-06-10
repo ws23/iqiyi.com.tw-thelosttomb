@@ -19,8 +19,8 @@
 					<li><a href="#next">預告片</a></li>
 					<li><a href="#other">精彩花絮</a></li>
 					<li><a href="#photo">劇照</a></li>
-<!--					<li><a href="#activity">抽獎活動</a></li>-->
 					<li><a href="#fb">網友互動</a></li>
+					<li><a style="color: #FF0000; " href="<?php echo $URLPv; ?>howtowatch.html" target="_blank">無法觀看？</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li>
