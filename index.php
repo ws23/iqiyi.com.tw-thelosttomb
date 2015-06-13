@@ -12,11 +12,11 @@
 	<meta name="author" content="臺灣愛奇藝股份有限公司">
 
 	<meta property="fb:app_id" content="<?php echo $FBCommentID; ?>">
-	<meta property="og:site_name" content="<?php echo $titleName; ?>">
+<!--	<meta property="og:site_name" content="<?php echo $titleName; ?>">
 	<meta property="og:url" content="http<?php echo $URLPv; ?>">
-	<meta property="og:type" content="website">
+	<meta property="og:type" content="article">
 	<meta property="og:title" content="<?php echo $titleName; ?>">
-	
+-->	
 
 	<title><?php echo $titleName; ?></title>
 
@@ -59,7 +59,7 @@
 			if (d.getElementById(id)) 
 				return;
 			js = d.createElement(s); js.id = id;
-			js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.3&appId=<?php echo $FBCommentID; ?>";
+			js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.2&appId=<?php echo $FBCommentID; ?>";
 			fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));
 	</script>
@@ -109,7 +109,7 @@
 		</div>
 		<div class="panel-body">
 		<?php 
-			$result = $DBmain->query("SELECT * FROM `video` WHERE `state` = 0 AND `mainID` = {$AID} ORDER BY `id` ASC; "); 
+			$result = $DBmain->query("SELECT * FROM `video` WHERE `state` = 0 AND `mainID` = {$AID} ORDER BY `id` DESC; "); 
 			while($row = $result->fetch_array(MYSQLI_BOTH)){ 
 		?>
 			<div class="video">
@@ -137,7 +137,7 @@
 		</div>
 		<div class="panel-body">
 		<?php 
-			$result = $DBmain->query("SELECT * FROM `next` WHERE `state` = 0 AND `mainID` = {$AID} ORDER BY `id` ASC; "); 
+			$result = $DBmain->query("SELECT * FROM `next` WHERE `state` = 0 AND `mainID` = {$AID} ORDER BY `id` DESC; "); 
 			while($row = $result->fetch_array(MYSQLI_BOTH)){
 		?>
 			<div class="next">
@@ -173,7 +173,7 @@
 	<script language="Javascript">
 		function callFull(imgName){
 			src = document.getElementById('photo-full'); 
-			src.setAttribute('src', imgName); 
+			src.setAttribute('src', imgName);
 		}
 	</script>
 
@@ -184,7 +184,7 @@
 		</div>
 		<div class="panel-body">
 		<?php 
-			$result = $DBmain->query("SELECT * FROM `photo` WHERE `state` = 0 AND `mainID` = {$AID} ORDER BY `id` ASC LIMIT 10; "); 
+			$result = $DBmain->query("SELECT * FROM `photo` WHERE `state` = 0 AND `mainID` = {$AID} ORDER BY `id` DESC; "); 
 			$row = $result->fetch_array(MYSQLI_BOTH); 
 		?>
 			<img id ="photo-full" class="full" src="<?php echo $URLPv . $row['full']; ?>" />

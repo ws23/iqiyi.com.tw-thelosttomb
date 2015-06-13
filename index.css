@@ -151,8 +151,8 @@ embed.embed {
 }
 
 .photo img {
-	width: 160px; 
-	height: 225px;
+/*	width: 160px; */
+	height: 90px; 
 	margin-left: 14px; 
 	margin-right: 14px; 
 	margin-top: 10px; 
@@ -160,7 +160,7 @@ embed.embed {
 }
 
 img.full {
-	width: 	429px; 
-	height: 600px;
-	margin-left: 273px; 	 
+	height: 100%;
+/*	width: 940px; */
 }
+
