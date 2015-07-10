@@ -161,6 +161,7 @@ embed.embed {
 
 img.full {
 	height: 100%;
+	margin-left: 44px; 
 /*	width: 940px; */
 }
 
