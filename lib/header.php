@@ -14,12 +14,22 @@
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">現正熱映</a></li>
-					<li><a href="#list">劇集列表</a></li>
-					<li><a href="#next">預告片</a></li>
-					<li><a href="#other">精彩花絮</a></li>
-					<li><a href="#photo">劇照</a></li>
-					<li><a href="#fb">網友互動</a></li>
+<?php
+	$arr = array(
+		array("index.php", "現正熱映"), 
+		array("next.php", "預告片"), 
+		array("other.php", "精彩花絮"), 
+		array("photo.php", "劇照"), 
+		array("fb.php", "網友互動")
+	); 
+
+	foreach( $arr as $i){
+?>
+		
+	<li <?php if($URI==$folderRoot.$i[0]) echo 'class="active"';?>><a href="<?php if($URI==$folderRoot.$i[0]) echo '#'; else echo $URLPv . $i[0]; ?>"><?php echo $i[1]; ?></a></li>
+<?php
+	}
+?>
 					<li><a style="color: #FF0000; " href="<?php echo $URLPv; ?>howtowatch.html" target="_blank">無法觀看？</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
