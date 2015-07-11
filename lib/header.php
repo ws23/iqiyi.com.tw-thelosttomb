@@ -20,7 +20,7 @@
 		array("next.php", "預告片"), 
 		array("other.php", "精彩花絮"), 
 		array("photo.php", "劇照"), 
-		array("fb.php", "網友互動")
+		array("index.php#fb", "網友互動")
 	); 
 
 	foreach( $arr as $i){
