@@ -54,10 +54,10 @@
 
 				else if($_POST[$tmp . 'act'] == "edit") {
 					$str = "UPDATE `{$DBTable}` SET `title` = '{$_POST[$tmp . 'title']}', `linkURL` = '{$_POST[$tmp . 'link']}'";
-					if($arr != 'a')
+					if($arr != 'a'){
 						$str .=", `text` = '{$_POST[$tmp . 'text']}'"; 
-					if($arr == 'v')
 						$str .= ", `videoURL` = '{$_POST[$tmp . 'video']}'"; 
+					}
 					$str .= " WHERE `id` = {$row['id']}; "; 
 					$DBmain->query($str); 
 					setLog($DBmain, 'info', "edit `$DBTable` #{$row['id']}", $_SESSION['UID']); 
@@ -83,7 +83,7 @@
 				$title = $_POST[$arr . '_0_title']; 
 				$link = $_POST[$arr . '_0_link']; 
 				
-				if($arr == 'v') {
+				if($arr != 'a') {
 					$video = $_POST[$arr . '_0_video']; 
 					$DBmain->query("INSERT INTO `{$DBTable}` (`mainID`, `title`, `text`, `state`, `imageURL`, `linkURL`, `videoURL`) VALUES ({$AID}, '{$title}', '{$text}', {$state}, '{$imgURL}', '{$link}', '$video'); "); 
 				}

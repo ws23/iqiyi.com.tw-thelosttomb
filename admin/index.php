@@ -61,48 +61,46 @@ if(isset($_SESSION['UID'])) { // 已登入
 function Edit(type, id) {
 	if(id==0) {
 		document.getElementById(type + '_0_title').removeAttribute("style"); 
-		if(type != "a")
+		if(type != "a") {
 			document.getElementById(type + '_0_text').removeAttribute("style"); 
+			document.getElementById(type + '_0_video').removeAttribute("style"); 
+		}
 		document.getElementById(type + '_0_link').removeAttribute("style");
 		document.getElementsByName(type + '_0_state')[0].removeAttribute("style");  
 		document.getElementById(type + '_0_img').removeAttribute("style"); 
-		if(type == "v")
-			document.getElementById('v_0_video').removeAttribute("style"); 
 	}
 	else {
 		document.getElementById(type + '_' + id + '_title').removeAttribute("readonly"); 
-		if(type != "a")
+		if(type != "a") {
 			document.getElementById(type + '_' + id + '_text').removeAttribute("readonly"); 
+			document.getElementById(type + '_' + id + '_video').removeAttribute("style"); 
+			document.getElementById(type + '_' + id + '_video_a').setAttribute("style", "display: none; ");
+		}
 		document.getElementById(type + '_' + id + '_link_a').setAttribute("style", "display: none; "); 
 		document.getElementById(type + '_' + id + '_link').removeAttribute("style"); 
-		if(type == "v") {
-			document.getElementById('v_' + id + '_video').removeAttribute("style"); 
-			document.getElementById('v_' + id + '_video_a').setAttribute("style", "display: none; "); 
-		}
 	}
 }
 
 function NoEdit(type, id) {
 	if(id==0) {
 		document.getElementById(type + '_0_title').setAttribute("style", "display: none; "); 
-		if(type != "a")
+		if(type != "a"){
 			document.getElementById(type + '_0_text').setAttribute("style", "display: none; "); 
+			document.getElementById(type + '_0_video').setAttribute("style", "display: none; "); 
+		}
 		document.getElementById(type + '_0_link').setAttribute("style", "display: none; "); 
 		document.getElementsByName(type + '_0_state')[0].setAttribute("style", "display: none; "); 
 		document.getElementById(type + '_0_img').setAttribute("style", "display: none; "); 
-		if(type == "v")
-			document.getElementById('v_0_video').setAttribute("style", "display: none; "); 
 	}
 	else {
 		document.getElementById(type + '_' + id + '_title').setAttribute("readonly", ""); 
-		if(type != "a")
+		if(type != "a"){
 			document.getElementById(type + '_' + id + '_text').setAttribute("readonly", ""); 
+			document.getElementById(type + '_' + id + '_video').setAttribute("style", "display: none; "); 
+			document.getElementById(type + '_' +  id + '_video_a').removeAttribute("style"); 
+		}
 		document.getElementById(type + '_' + id + '_link_a').removeAttribute("style"); 
 		document.getElementById(type + '_' + id + '_link').setAttribute("style", "display: none; "); 
-		if(type == "v") {
-			document.getElementById('v_' + id + '_video').setAttribute("style", "display: none; "); 
-			document.getElementById('v_' + id + '_video_a').removeAttribute("style"); 
-		}
 	}
 }
 
@@ -254,6 +252,7 @@ else if($_GET['admin']=="next"){
 				<th class="col-md-2">子標題(22)</th>
 				<th class="col-md-1">縮圖連結</th>
 				<th class="col-md-1">影片連結</th>
+				<th class="col-md-1">內嵌網址</th>
 				<th class="col-md-1">狀態</th>
 				<th class="col-md-1">動作</th>
 			</tr>
@@ -287,6 +286,14 @@ else if($_GET['admin']=="next"){
 					</div>
 				</td>
 				<td>
+					<div id="n_<?php echo $row['id']; ?>_video_a">
+						<a href="<?php echo $row['videoURL']; ?>" target="_blank">內嵌</a>
+					</div>
+					<div id="n_<?php echo $row['id']; ?>_video" style="display: none; ">
+						<input class="form-control" type="text" name="n_<?php echo $row['id']; ?>_video" placeholder="內嵌影片網址" value="<?php echo $row['videoURL']; ?>" />
+					</div>
+				</td>
+				<td>
 					<select name="n_<?php echo $row['id']; ?>_state" class="form-control">
 						<option value="able" <?php echo $row['state']=='0'? "selected" : "";  ?>>顯示</option>
 						<option value="disable" <?php echo $row['state']=='1'? "selected" : "";  ?>>隱藏</option>
@@ -315,6 +322,9 @@ else if($_GET['admin']=="next"){
 				</td>
 				<td>
 					<input id="n_0_link" class="form-control" type="text" name="n_0_link" placeholder="影片原始連結" style="display: none; "/>
+				</td>
+				<td>
+					<input id="n_0_video" class="form-control" type="text" name="n_0_video" placeholder="內嵌影片網址" style="display: none; "/>
 				</td>
 				<td>
 					<select name="n_0_state" class="form-control" style="display: none; ">
@@ -356,6 +366,7 @@ else if($_GET['admin']=="other"){
 				<th class="col-md-2">子標題(22)</th>
 				<th class="col-md-1">縮圖連結</th>
 				<th class="col-md-1">影片連結</th>
+				<th class="col-md-1">內嵌影片</th>
 				<th class="col-md-1">狀態</th>
 				<th class="col-md-1">動作</th>
 			</tr>
@@ -389,6 +400,14 @@ else if($_GET['admin']=="other"){
 					</div>
 				</td>
 				<td>
+					<div id="o_<?php echo $row['id']; ?>_video_a">
+						<a href="<?php echo $row['videoURL']; ?>" target="_blank">內嵌</a>
+					</div>
+					<div id="o_<?php echo $row['id']; ?>_video" style="display: none; ">
+						<input class="form-control" type="text" name="o_<?php echo $row['id']; ?>_video" placeholder="內嵌影片網址" value="<?php echo $row['videoURL']; ?>" />
+					</div>
+				</td>
+				<td>
 					<select name="o_<?php echo $row['id']; ?>_state" class="form-control">
 						<option value="able" <?php echo $row['state']=='0'? "selected" : "";  ?>>顯示</option>
 						<option value="disable" <?php echo $row['state']=='1'? "selected" : "";  ?>>隱藏</option>
@@ -417,6 +436,9 @@ else if($_GET['admin']=="other"){
 				</td>
 				<td>
 					<input id="o_0_link" class="form-control" type="text" name="o_0_link" placeholder="影片原始連結" style="display: none; "/>
+				</td>
+				<td>
+					<input id="o_0_video" class="form-control" type="text" name="o_0_video" placeholder="內嵌影片網址" style="display: none; "/>
 				</td>
 				<td>
 					<select name="o_0_state" class="form-control" style="display: none; ">
