@@ -84,91 +84,6 @@
 
 <!-- body start -->
 <div class="container">
-	<!-- focus -->
-	<script>
-		function changeVideo(str) {
-			src = document.getElementById('focus'); 
-			src.innerHTML = ""; 
-			src.innerHTML = '<embed id="embed" class="embed" src="' + str + '-autoplay=1" quality="high" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>'; 
-		}
-
-	</script>
-	<div id ="focus" class="focus"><?php
-		$result = $DBmain->query("SELECT `videoURL` FROM `video` WHERE `state` = 0 AND `mainID` = {$AID} ORDER BY `id` DESC LIMIT 1; "); 
-		if($result != NULL){ 
-		$row = $result->fetch_array(MYSQLI_BOTH); 
-	?>
-		<embed id="embed" class="embed" src="<?php echo $row['videoURL'] . "-autoplay=1"; ?>" quality="high" align="middle" allowScriptAccess="always" allowFullScreen="true" type="application/x-shockwave-flash"></embed>
-	<?php } ?>
-	</div>
-	<!-- 劇集列表 -->
-	<a name="list"></a>
-	<div class="panel panel-theme">
-		<div class="panel-heading">
-			<h3 class="panel-title">劇集列表</h3>
-		</div>
-		<div class="panel-body">
-		<?php 
-			$result = $DBmain->query("SELECT * FROM `video` WHERE `state` = 0 AND `mainID` = {$AID} ORDER BY `id` DESC; "); 
-			while($row = $result->fetch_array(MYSQLI_BOTH)){ 
-		?>
-			<div class="video">
-				<p onclick="changeVideo('<?php echo $row['videoURL']; ?>')"><img src="<?php echo $URLPv . $row['imageURL']; ?>"/></p>
-				<a href="<?php echo $row['linkURL']; ?>" target="_blank"><strong><?php echo $row['title']; ?></strong><br />
-				<?php echo $row['text']; ?></a>
-			</div>
-		<?php } ?>
-		</div>
-	</div>
-	<!-- 廣告版位 -->
-	<div class="ad">
-	<?php 
-		$result = $DBmain->query("SELECT * FROM `ad` WHERE `state` = 0 ORDER BY `id` DESC; "); 
-		while($row = $result->fetch_array(MYSQLI_BOTH)) {
-	?>
-			<a href="<?php echo $row['linkURL']; ?>" target="_blank"><img class="ad-content ad-hidden" src="<?php echo $AdPv . $row['imageURL']; ?>"/></a>
-	<?php } ?>
-	</div>
-	<!-- 預告片 -->
-	<a name="next"></a>
-	<div class="panel panel-theme">
-		<div class="panel-heading">
-			<h3 class="panel-title">預告片</h3>
-		</div>
-		<div class="panel-body">
-		<?php 
-			$result = $DBmain->query("SELECT * FROM `next` WHERE `state` = 0 AND `mainID` = {$AID} ORDER BY `id` DESC; "); 
-			while($row = $result->fetch_array(MYSQLI_BOTH)){
-		?>
-			<div class="next">
-				<p><a href="<?php echo $row['linkURL']; ?>" target="_blank"><img src="<?php echo $URLPv . $row['imageURL']; ?>"/></a></p>
-				<a href="<?php echo $row['linkURL']; ?>" target="_blank"><strong><?php echo $row['title']; ?></strong><br />
-				<?php echo $row['text']!=''? $row['text'] : '&nbsp;'; ?></a>
-			</div>
-		<?php } ?>
-		</div>
-	</div>
-	
-	<!-- 精彩花絮 -->
-	<a name="other"></a>
-	<div class="panel panel-theme">
-		<div class="panel-heading">
-			<h3 class="panel-title">精彩花絮</h3>
-		</div>
-		<div class="panel-body">
-		<?php 
-			$result = $DBmain->query("SELECT * FROM `other` WHERE `state` = 0 AND `mainID` = {$AID} ORDER BY `id` DESC; "); 
-			while($row = $result->fetch_array(MYSQLI_BOTH)) {
-		 ?>
-			<div class="other">
-				<p><a href="<?php echo $row['linkURL']; ?>" target="_blank"><img src="<?php echo $URLPv . $row['imageURL']; ?>" /></a></p>
-				<a href="<?php echo $row['linkURL']; ?>" target="_blank"><strong><?php echo $row['title']; ?></strong><br />
-				<?php echo $row['text']!=''? $row['text'] : '&nbsp; '; ?></a>
-			</div>
-		<?php  }?>	
-		</div>
-	</div>
-
 	<!-- 高清劇照 -->
 	<script language="Javascript">
 		function callFull(imgName){
@@ -196,18 +111,15 @@
 		</div>
 	</div>
 
-<!-- 網友互動 -->
-	<a name="fb"></a>
-	<div class="panel panel-theme">
-		<div class="panel-heading">
-			<h3 class="panel-title">網友互動</h3>
-		</div>
-		<div class="panel-body">
-			<div class="fb-comments" data-href="http:<?php echo $URLPv; ?>" data-width="100%" data-numposts="10" data-colorscheme="dark" data-order-by="reverse_time" fb-xfbml-state="tendered">
-			</div>	
-		</div>
+	<!-- 廣告版位 -->
+	<div class="ad">
+	<?php 
+		$result = $DBmain->query("SELECT * FROM `ad` WHERE `state` = 0 ORDER BY `id` DESC; "); 
+		while($row = $result->fetch_array(MYSQLI_BOTH)) {
+	?>
+			<a href="<?php echo $row['linkURL']; ?>" target="_blank"><img class="ad-content ad-hidden" src="<?php echo $AdPv . $row['imageURL']; ?>"/></a>
+	<?php } ?>
 	</div>
-</div>
 
 <!-- body end -->
 <?php require_once(dirname(__FILE__) . "/lib/stdEnd.php"); ?> 
