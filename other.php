@@ -114,7 +114,7 @@
 			while($row = $result->fetch_array(MYSQLI_BOTH)) {
 		 ?>
 			<div class="other">
-				<p><a href="<?php echo $row['linkURL']; ?>" target="_blank"><img src="<?php echo $URLPv . $row['imageURL']; ?>" /></a></p>
+				<p onclick="changeVideo('<?php echo $row['videoURL']; ?>')"><img src="<?php echo $URLPv . $row['imageURL']; ?>" /></a></p>
 				<a href="<?php echo $row['linkURL']; ?>" target="_blank"><strong><?php echo $row['title']; ?></strong><br />
 				<?php echo $row['text']!=''? $row['text'] : '&nbsp; '; ?></a>
 			</div>
