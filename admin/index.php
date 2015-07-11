@@ -45,7 +45,7 @@ if(isset($_SESSION['UID'])) { // 已登入
 				<li><a href="<?php echo $URLPv . "admin/index.php?admin=other"; ?>">精彩花絮</a></li>
 				<li><a href="<?php echo $URLPv . "admin/index.php?admin=photo"; ?>">劇照</a></li>
 				<li><a href="<?php echo $URLPv . "admin/index.php?admin=activity"; ?>">抽獎活動</a></li>
-				<li><a href="//developers.facebook.com/tools/comments/100922380244479/approved/descending/">網友互動</a></li>
+				<li><a href="//developers.facebook.com/tools/comments/100922380244479/approved/descending/" target="_blank">網友互動</a></li>
 				<li><a href="<?php echo $URLPv . "admin/index.php?admin=ad"; ?>">廣告版塊</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
