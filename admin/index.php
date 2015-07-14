@@ -513,7 +513,7 @@ else if($_GET['admin']=="ad"){ ?>
 					</div>
 				</td>
 				<td>
-					<a href="<?php echo $URLPv . $row['imageURL']; ?>" target="_blank">圖片</a>
+					<a href="<?php echo $AdPv . $row['imageURL']; ?>" target="_blank">圖片</a>
 				</td>
 				<td>
 					<div id="a_<?php echo $row['id']; ?>_link_a">
